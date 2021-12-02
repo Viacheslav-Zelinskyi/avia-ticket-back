@@ -17,7 +17,7 @@ class TicketsService {
       Tickets.create(ticket, (err, doc) => {
         if (err) rej(err);
 
-        res("Saved tickets: " + doc);
+        res({_id: doc.id});
       });
     });
   }

@@ -1,0 +1,188 @@
+/* Added variables for support dark theme */
+
+.ant-select {
+  color: var(--font-color);
+}
+
+.ant-select-arrow {
+  color: var(--font-secondary-color);
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  background-color: var(--background-color);
+}
+
+.ant-select
+  .ant-select-lg
+  .step__selector
+  .ant-select-single
+  .ant-select-show-arrow
+  .ant-select-open {
+  background-color: red;
+}
+
+.ant-steps-item-process
+  > .ant-steps-item-container
+  > .ant-steps-item-content
+  > .ant-steps-item-title {
+  color: var(--font-color);
+}
+
+.ant-steps-item-wait
+  > .ant-steps-item-container
+  > .ant-steps-item-content
+  > .ant-steps-item-title {
+  color: var(--font-secondary-color);
+}
+
+.ant-steps-item-wait .ant-steps-item-icon {
+  background-color: var(--background-color);
+  border-color: var(--font-secondary-color);
+}
+
+.ant-steps-item-wait .ant-steps-item-icon > .ant-steps-icon {
+  color: var(--font-secondary-color);
+}
+
+.ant-btn-primary[disabled],
+.ant-btn-primary[disabled]:hover,
+.ant-btn-primary[disabled]:focus,
+.ant-btn-primary[disabled]:active {
+  color: var(--font-secondary-color);
+  border-color: var(--font-secondary-color);
+  background: var(--background-color);
+  text-shadow: none;
+  box-shadow: none;
+}
+
+.ant-steps-item-finish .ant-steps-item-icon {
+  background-color: var(--background-color);
+}
+
+.ant-steps-item-finish
+  > .ant-steps-item-container
+  > .ant-steps-item-content
+  > .ant-steps-item-title {
+  color: var(--font-secondary-color);
+}
+
+.ant-picker {
+  background-color: var(--background-color);
+}
+
+.ant-picker-suffix {
+  color: var(--font-secondary-color);
+}
+
+.ant-picker-panel-container .ant-picker-panel {
+  background-color: var(--background-color);
+}
+
+.ant-picker-cell {
+  color: var(--font-secondary-color);
+}
+
+.ant-picker-cell-in-view {
+  color: var(--font-color);
+}
+
+.ant-picker-content th {
+  color: var(--font-color);
+}
+
+.ant-picker-header {
+  color: var(--font-color);
+}
+.ant-picker-time-panel-column
+  > li.ant-picker-time-panel-cell
+  .ant-picker-time-panel-cell-inner {
+  color: var(--font-color);
+}
+.ant-picker-time-panel-column
+  > li.ant-picker-time-panel-cell-selected
+  .ant-picker-time-panel-cell-inner {
+  background: var(--primary-color);
+}
+
+.ant-picker-time-panel-column
+  > li.ant-picker-time-panel-cell
+  .ant-picker-time-panel-cell-inner:hover {
+  background-color: var(--secondary-color);
+}
+
+.ant-picker-header > button {
+  color: var(--font-secondary-color);
+}
+
+.ant-picker-header > button:hover {
+  color: var(--font-color);
+}
+
+.ant-picker-cell:hover:not(.ant-picker-cell-in-view) .ant-picker-cell-inner,
+.ant-picker-cell:hover:not(.ant-picker-cell-selected):not(.ant-picker-cell-range-start):not(.ant-picker-cell-range-end):not(.ant-picker-cell-range-hover-start):not(.ant-picker-cell-range-hover-end)
+  .ant-picker-cell-inner {
+  background: var(--secondary-color);
+}
+
+.ant-picker-input > input {
+  color: var(--font-color);
+}
+
+.ant-radio-wrapper {
+  color: var(--font-color);
+}
+
+.ant-btn-primary[disabled] {
+  border: 1px solid var(--font-secondary-color);
+}
+
+.ant-btn-primary {
+  background: var(--primary-color);
+  border: none;
+}
+
+.ant-card-body {
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+
+.ant-card-type-inner .ant-card-head {
+  background-color: var(--secondary-color);
+  color: var(--font-color);
+}
+
+.ant-table {
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+
+.ant-table-tbody > tr.ant-table-placeholder:hover > td {
+  background-color: var(--secondary-color);
+  color: var(--font-color);
+}
+
+.ant-empty-normal {
+  color: var(--font-color);
+}
+
+.ant-table-thead > tr > th {
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+
+.ant-table-tbody > tr.ant-table-row:hover > td {
+  background-color: var(--secondary-color);
+  color: var(--font-color);
+}
+
+.ant-pagination-disabled .ant-pagination-item-link, .ant-pagination-disabled:hover .ant-pagination-item-link, .ant-pagination-disabled:focus-visible .ant-pagination-item-link {
+  background-color: var(--background-color);
+  color: var(--font-color);
+  border-color: var(--secondary-color);
+}
+
+.ant-pagination-item-active {
+  background-color: var(--background-color);
+  color: var(--font-color);
+  border-color: var(--primary-color);
+}

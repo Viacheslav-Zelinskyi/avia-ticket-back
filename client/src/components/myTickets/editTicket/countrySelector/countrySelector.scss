@@ -1,0 +1,12 @@
+.countrySelector {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  &__select {
+    text-align: left;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+  }
+}

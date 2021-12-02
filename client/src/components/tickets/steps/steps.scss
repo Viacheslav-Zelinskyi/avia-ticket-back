@@ -1,0 +1,47 @@
+.step {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  &__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 170px;
+    flex-wrap: wrap;
+    h2 {
+      color: var(--font-color);
+    }
+  }
+  &__selector {
+    width: 300px;
+    text-align: left;
+  }
+  &__submit {
+    width: 200px;
+    text-align: center;
+  }
+  &__radio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
+    color: white;
+  }
+  &__summaryContainer {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__summaryCard {
+    width: 95%;
+  }
+  &__submitWrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
