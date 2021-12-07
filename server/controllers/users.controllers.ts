@@ -63,7 +63,7 @@ class UserController {
 
     let options = {
       maxAge: 1000 * Number(process.env.TOKEN_REFRESH_LIFE),
-      httpOnly: false,
+      httpOnly: true,
       secure: !process.env.COOKIE_SECURE,
     };
 
