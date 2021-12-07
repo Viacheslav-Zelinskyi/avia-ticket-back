@@ -43,14 +43,16 @@ class UserController {
       req.body.username
     )) as Array<IUserReq>;
 
-    if (users.length === 0) return res.send({ error: "User doesn't exist" });
+    if (users.length === 0)
+      return res.status(404).send({ error: "User doesn't exist" });
 
     const isPasswordCorrect = (await UsersServices.checkPassword(
       req.body.password,
       users[0].password
     )) as boolean;
 
-    if (!isPasswordCorrect) return res.send({ error: "Wrong password" });
+    if (!isPasswordCorrect)
+      return res.status(401).send({ error: "Wrong password" });
 
     const token = (await UsersServices.generateAccessToken(
       users[0].username
@@ -62,13 +64,28 @@ class UserController {
     let options = {
       maxAge: 1000 * Number(process.env.TOKEN_REFRESH_LIFE),
       httpOnly: true,
-      secure: false,
+      secure: !process.env.COOKIE_SECURE,
     };
 
     return res
       .status(200)
       .cookie("refreshToken", refreshToken, options)
       .send({ token: token });
+  }
+
+  async refreshToken(req: IRequest, res: Response) {
+    const refreshToken = req.headers.cookie.split("=")[1];
+    const user = (await UsersServices.checkRefreshToken(
+      refreshToken
+    )) as IUserReq;
+
+    if (user.error) return res.status(401).send({ error: "Wrong token" });
+
+    const token = (await UsersServices.generateAccessToken(
+      user.username
+    )) as string;
+
+    return res.status(200).send(token);
   }
 }
 

@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.use(async (req: IRequest, res: Response, next) => {
   const user = (await UsersServices.checkAccessToken(
-    req.query.token as string
+    req.headers.authorization as string
   )) as IUserReq;
   req.user = { authorized: !user.error, username: user.username };
 

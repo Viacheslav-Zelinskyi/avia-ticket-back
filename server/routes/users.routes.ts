@@ -12,4 +12,6 @@ router.route("/signup").post(UsersControllers.createUser);
 
 router.route("/login").post(UsersControllers.logIn);
 
+router.route("/refresh-token").post(UsersControllers.refreshToken);
+
 export default router;
