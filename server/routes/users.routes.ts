@@ -8,6 +8,8 @@ router.use(async (req: IRequest, res: Response, next) => {
   next();
 });
 
+router.route("/logout").post(UsersControllers.logOut);
+
 router.route("/signup").post(UsersControllers.createUser);
 
 router.route("/login").post(UsersControllers.logIn);

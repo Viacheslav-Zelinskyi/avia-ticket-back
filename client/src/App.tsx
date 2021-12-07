@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
+import { refreshTokenFetch } from "./api";
 import "./App.scss";
 import {
   Header,
@@ -10,16 +11,26 @@ import {
   MyTicketsPage,
 } from "./components";
 import { getAllTickets } from "./redux/reducers/allTickets";
+import { logIn } from "./redux/reducers/user";
 import { aboutPath, homePath, myTicketsPath, ticketsPath } from "./routes";
 import { keepTheme } from "./utils/themes";
 
 function App() {
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     keepTheme();
 
+    refreshTokenFetch().then((res) => {
+      if (res.error) return localStorage.removeItem("username");
+
+      localStorage.setItem("AT", res.token);
+      dispatch(logIn(localStorage.getItem("username") as string));
+    });
+
     dispatch(getAllTickets());
+
+    return localStorage.removeItem("AT");
   }, []);
 
   return (

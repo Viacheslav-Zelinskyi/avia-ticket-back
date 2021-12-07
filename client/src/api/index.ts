@@ -9,47 +9,93 @@ export const getCountries = async () => {
 
 export const loginFetch = async (user: IUser) => {
   const response = await fetch(
-    //window.location.protocol + "//" + window.location.host + `/api/user/login`,
-    "http://localhost:5000/api/users/login",
+    window.location.protocol + "//" + window.location.host + `/api/users/login`,
     {
       method: "POST",
+      credentials: "include",
       body: JSON.stringify(user),
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
     }
   );
 
   return response.json();
-}
+};
+
+export const logoutFetch = async () => {
+  const response = await fetch(
+    window.location.protocol +
+      "//" +
+      window.location.host +
+      `/api/users/logout`,
+    {
+      method: "POST",
+      credentials: "include",
+    }
+  );
+
+  return response.json();
+};
 
 export const signupFetch = async (user: IUser) => {
   const response = await fetch(
-    //window.location.protocol + "//" + window.location.host + `/api/user/signup`,
-    "http://localhost:5000/api/users/signup",
+    window.location.protocol +
+      "//" +
+      window.location.host +
+      `/api/users/signup`,
     {
       method: "POST",
+      credentials: "include",
       body: JSON.stringify(user),
       headers: { "Content-Type": "application/json" },
     }
   );
 
   return response.json();
-}
+};
+
+export const refreshTokenFetch = async () => {
+  const response = await fetch(
+    window.location.protocol +
+      "//" +
+      window.location.host +
+      `/api/users/refresh-token`,
+    {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+    }
+  );
+
+  return response.json();
+};
 
 export const getTicketsFetch = async () => {
+  const accessToken = localStorage.getItem("AT") as string;
+
   const response = await fetch(
-    window.location.protocol + "//" + window.location.host + `/api/tickets`
+    window.location.protocol + "//" + window.location.host + `/api/tickets`,
+    {
+      headers: { authentication: accessToken },
+    }
   );
 
   return response.json();
 };
 
 export const addTicketFetch = async (ticket: ITicket) => {
+  const accessToken = localStorage.getItem("AT") as string;
+
   const response = await fetch(
     window.location.protocol + "//" + window.location.host + `/api/tickets`,
     {
       method: "POST",
       body: JSON.stringify({ ticket: ticket }),
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        authentication: accessToken,
+      },
     }
   );
 
@@ -57,12 +103,17 @@ export const addTicketFetch = async (ticket: ITicket) => {
 };
 
 export const updateTicketFetch = async (id: string | null, ticket: ITicket) => {
+  const accessToken = localStorage.getItem("AT") as string;
+
   const response = await fetch(
     window.location.protocol + "//" + window.location.host + `/api/tickets`,
     {
       method: "PATCH",
       body: JSON.stringify({ id: id, ticket: ticket }),
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        authentication: accessToken,
+      },
     }
   );
 
@@ -70,12 +121,17 @@ export const updateTicketFetch = async (id: string | null, ticket: ITicket) => {
 };
 
 export const deleteTicketFetch = async (id: string | null) => {
+  const accessToken = localStorage.getItem("AT") as string;
+
   const response = await fetch(
     window.location.protocol + "//" + window.location.host + `/api/tickets`,
     {
       method: "DELETE",
       body: JSON.stringify({ id: id }),
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        authentication: accessToken,
+      },
     }
   );
 

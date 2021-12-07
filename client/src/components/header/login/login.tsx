@@ -22,7 +22,8 @@ const Login = ({ closeLogin }: ILoginProps) => {
         if (res.error) return alert(res.error);
 
         dispatch(logIn(data.username));
-        localStorage.setItem("token", res.token);
+        localStorage.setItem("AT", res.token);
+        localStorage.setItem("username", data.username);
 
         closeLogin();
       });
@@ -31,7 +32,8 @@ const Login = ({ closeLogin }: ILoginProps) => {
         if (res.error) return alert(res.error);
 
         dispatch(logIn(data.username));
-        localStorage.setItem("token", res.token);
+        localStorage.setItem("AT", res.token);
+        localStorage.setItem("username", data.username);
 
         closeLogin();
       });

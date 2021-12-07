@@ -63,7 +63,7 @@ class UserController {
 
     let options = {
       maxAge: 1000 * Number(process.env.TOKEN_REFRESH_LIFE),
-      httpOnly: true,
+      httpOnly: false,
       secure: !process.env.COOKIE_SECURE,
     };
 
@@ -74,7 +74,10 @@ class UserController {
   }
 
   async refreshToken(req: IRequest, res: Response) {
-    const refreshToken = req.headers.cookie.split("=")[1];
+    if (!req.headers.cookie)
+      return res.status(401).send({ error: "Wrong token" });
+
+    const refreshToken = req.cookies.refreshToken;
     const user = (await UsersServices.checkRefreshToken(
       refreshToken
     )) as IUserReq;
@@ -85,7 +88,11 @@ class UserController {
       user.username
     )) as string;
 
-    return res.status(200).send(token);
+    return res.status(200).send({ token: token });
+  }
+
+  async logOut(req: IRequest, res: Response) {
+    res.clearCookie("refreshToken").send({ status: "Success" });
   }
 }
 

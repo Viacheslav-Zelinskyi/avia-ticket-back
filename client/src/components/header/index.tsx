@@ -11,6 +11,10 @@ import { useEffect, useState } from "react";
 import { setTheme } from "../../utils/themes";
 import { themeKey, themes } from "../../utils/constants/themes.constants";
 import Login from "./login/login";
+import { useDispatch, useSelector } from "react-redux";
+import { IStore } from "../../models/redux.interfaces";
+import { logOut } from "../../redux/reducers/user";
+import { logoutFetch } from "../../api";
 
 interface IHeaderLink {
   text: string;
@@ -20,6 +24,8 @@ interface IHeaderLink {
 
 const Header = () => {
   const { t, i18n } = useTranslation();
+  const user = useSelector((store: IStore) => store.user);
+  const dispatch = useDispatch();
   const [isOpenedLogin, setIsOpenedLogin] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem(themeKey) === themes.dark
@@ -35,14 +41,23 @@ const Header = () => {
     { value: languages.ru, label: t("header.russian") },
   ];
 
+  const logout = () => {
+    dispatch(logOut());
+    logoutFetch();
+  };
+
   return (
     <div className="header__wrapper">
       {isOpenedLogin && <Login closeLogin={() => setIsOpenedLogin(false)} />}
       <div className="header__linksContainer">
-        <HeaderLink
-          text={t("common.login")}
-          onClick={() => setIsOpenedLogin(true)}
-        />
+        {user.authorized ? (
+          <HeaderLink text={t("common.logout")} onClick={logout} />
+        ) : (
+          <HeaderLink
+            text={t("common.login")}
+            onClick={() => setIsOpenedLogin(true)}
+          />
+        )}
       </div>
       <div className="header__linksContainer">
         <div className="header__links">

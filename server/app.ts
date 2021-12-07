@@ -4,6 +4,7 @@ import mongooseConnect from "./db";
 import routes from "./routes";
 import cors from "cors";
 import path from "path";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 mongooseConnect().catch((err) => console.log(err));
 app.use(cors());
+app.use(cookieParser());
 
 app.use("/", express.static(path.join(__dirname, "../client/build")));
 
