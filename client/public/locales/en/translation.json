@@ -7,6 +7,16 @@
     "myTickets": "My Tickets",
     "about": "About"
   },
+  "login": {
+    "subtitle": "Don't have account?",
+    "username": "Username",
+    "password": "Password",
+    "usernameValidation": "Please input your username!",
+    "passwordValidation": "Please input your password!"
+  },
+  "signup": {
+    "subtitle": "Already have account?"
+  },
   "myTickets": {
     "departureDate": "Departure date",
     "returnDate": "Return date",
@@ -56,6 +66,8 @@
     "submit": "Submit",
     "update": "Update",
     "cancel": "Cancel",
-    "delete": "Delete"
+    "delete": "Delete",
+    "login": "Log In",
+    "signup": "Sign Up"
   }
 }

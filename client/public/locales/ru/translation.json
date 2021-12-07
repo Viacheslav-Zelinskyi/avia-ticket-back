@@ -7,6 +7,16 @@
     "myTickets": "Мои билеты",
     "about": "О нас"
   },
+  "login": {
+    "subtitle": "Нет аккаунта?",
+    "username": "Имя пользователя",
+    "password": "Пароль",
+    "usernameValidation": "Введите ваше имя пользователя!",
+    "passwordValidation": "Введите ваш пароль!"
+  },
+  "signup": {
+    "subtitle": "Есть аккаунт?"
+  },
   "myTickets": {
     "departureDate": "Дата отправки",
     "returnDate": "Дата возвращения",
@@ -56,6 +66,8 @@
     "submit": "Подтвердить",
     "update": "Обновить",
     "cancel": "Отменить",
-    "delete": "Удалить"
+    "delete": "Удалить",
+    "login": "Войти",
+    "signup": "Зарегистрироваться"
   }
 }
