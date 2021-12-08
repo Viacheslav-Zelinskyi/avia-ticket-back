@@ -13,6 +13,7 @@ import {
 import { getAllTickets } from "./redux/reducers/allTickets";
 import { logIn } from "./redux/reducers/user";
 import { aboutPath, homePath, myTicketsPath, ticketsPath } from "./routes";
+import { ACCESS_TOKEN } from "./utils/constants/localStorage.constants";
 import { keepTheme } from "./utils/themes";
 
 function App() {
@@ -24,13 +25,13 @@ function App() {
     refreshTokenFetch().then((res) => {
       if (res.error) return localStorage.removeItem("username");
 
-      localStorage.setItem("AT", res.token);
+      localStorage.setItem(ACCESS_TOKEN, res.token);
       dispatch(logIn(localStorage.getItem("username") as string));
     });
 
     dispatch(getAllTickets());
 
-    return localStorage.removeItem("AT");
+    return localStorage.removeItem(ACCESS_TOKEN);
   }, []);
 
   return (
