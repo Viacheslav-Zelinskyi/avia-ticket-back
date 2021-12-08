@@ -14,7 +14,7 @@ class UserController {
 
     const user: IUser = { username: req.body.username, password: hash };
 
-    if (users.length > 0) return res.send({ error: "User exist" });
+    if (users.length > 0) return res.status(200).send({ error: "User exist" });
 
     await UsersServices.createUser(user);
 
