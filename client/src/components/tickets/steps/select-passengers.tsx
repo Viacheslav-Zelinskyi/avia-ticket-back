@@ -52,6 +52,13 @@ const SelectPassengers = ({
         <Button
           type="primary"
           size="large"
+          onClick={() => setCurrentStep(currentStep - 1)}
+        >
+          {t("common.back")}
+        </Button>
+        <Button
+          type="primary"
+          size="large"
           onClick={savePassengersNumber}
           disabled={isEmptyForm}
         >

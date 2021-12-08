@@ -59,6 +59,13 @@ const SelectFlight = ({
         <Button
           type="primary"
           size="large"
+          onClick={() => setCurrentStep(currentStep - 1)}
+        >
+          {t("common.back")}
+        </Button>
+        <Button
+          type="primary"
+          size="large"
           onClick={() => setCurrentStep(currentStep + 1)}
           disabled={!ticket.returnDate && !!isRoundTrip}
         >

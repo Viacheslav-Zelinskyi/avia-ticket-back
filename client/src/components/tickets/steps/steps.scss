@@ -20,8 +20,9 @@
     text-align: left;
   }
   &__submit {
-    width: 200px;
-    text-align: center;
+    width: 250px;
+    display: flex;
+    justify-content: space-around;
   }
   &__radio {
     display: flex;
