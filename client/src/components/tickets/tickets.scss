@@ -1,0 +1,11 @@
+.tickets {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  &__container {
+    padding-top: 20px;
+    width: 100%;
+    max-width: 1000px;
+  }
+}

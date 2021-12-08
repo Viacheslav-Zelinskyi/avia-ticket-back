@@ -1,0 +1,74 @@
+{
+  "header": {
+    "english": "English",
+    "russian": "Russian",
+    "home": "Home",
+    "tickets": "Tickets",
+    "myTickets": "My Tickets",
+    "about": "About"
+  },
+  "login": {
+    "subtitle": "Don't have account?",
+    "username": "Username",
+    "password": "Password",
+    "usernameValidation": "Please input your username!",
+    "passwordValidation": "Please input your password!"
+  },
+  "signup": {
+    "subtitle": "Already have account?"
+  },
+  "myTickets": {
+    "departureDate": "Departure date",
+    "returnDate": "Return date",
+    "passengers": "Passengers",
+    "actions": "Actions",
+    "edit": "Edit",
+    "saveJSON": "Save as JSON",
+    "uploadJSON": "Upload JSON",
+    "adult": "Adult: ",
+    "childrens": "Childrens: ",
+    "infants": "Infants: ",
+    "id": "ID"
+  },
+  "tickets": {
+    "roundTrip": "Round-trip",
+    "oneWay": "One-way",
+    "selectDate": "Select date: ",
+    "summary": "Summary",
+    "departureAt": "Departure date and time: ",
+    "returnAt": "Date of return departure: ",
+    "passengers": "Passengers: ",
+    "adult": "Adult: ",
+    "childrens": "Childrens: ",
+    "infants": "Infants: ",
+    "buy": "Buy"
+  },
+  "steps": {
+    "firstStep": "Choosing a path",
+    "secondStep": "Choosing a date",
+    "thirdStep": "Flight selection",
+    "fourthStep": "Who's coming?",
+    "fifthStep": "Tickets summary"
+  },
+  "about": {
+    "title": "About us",
+    "description": "Belavia - Belarusian Airlines takes the leading position in passenger air transportations on the Belarusian market. The airline’s concept of positive image shaping is based on the saferegular and punctual operations as well as on improvement of passenger service quality. Belavia is a modern, rapidly growing company that meets requirements of the latest innovations in air transport and is constantly focused on further development and improvement of the airline and attraction of greater number of passengers. Among the priorities of Belavia is its fleet renewal, optimization of resources, implementation of modern information technologies and improvement of service level both in flight and on the ground. The Airline is customer-oriented and makes its best efforts to provide air traveling possibilities both by its own direct flights and those of its partners to continue their journey immediately to any country in the world as per customer’s needs. Business travelers and tourists can appreciate at its true value Belarusian hospitality and responsible attitude of the airline staff to fulfillment of their functions. Owing to the cooperative team of highly qualified professionals who are proud of their work, for the short period of time Belavia has showed itself as a reliable and competitive air carrier.",
+    "belavia": "Belavia"
+  },
+  "editTicket": {
+    "title": "Edit ticket ID: ",
+    "departureDate": "Departure date: ",
+    "returnDate": "Return date: "
+  },
+  "common": {
+    "from": "From",
+    "to": "To",
+    "submit": "Submit",
+    "update": "Update",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "login": "Log In",
+    "signup": "Sign Up",
+    "logout": "Log Out"
+  }
+}

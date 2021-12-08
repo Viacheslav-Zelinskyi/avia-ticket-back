@@ -1,0 +1,39 @@
+.header {
+  &__wrapper {
+    background: url("./images/header.jpg");
+    background-size: 100% auto;
+    background-position: center;
+    width: 100%;
+    height: 18%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__linksContainer {
+    display: flex;
+    height: 100px;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    width: 420px;
+  }
+  &__selectors {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+  }
+  &__selectLanguage {
+    color: var(--font-color);
+  }
+  &__selectLanguageInput {
+    background-color: var(--background-color);
+  }
+}
