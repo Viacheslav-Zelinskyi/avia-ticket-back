@@ -16,7 +16,12 @@ interface ISummaryProps {
   navigate: NavigateFunction;
 }
 
-const Summary = ({ ticket, navigate }: ISummaryProps) => {
+const Summary = ({
+  ticket,
+  navigate,
+  setCurrentStep,
+  currentStep,
+}: ISummaryProps) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -53,6 +58,13 @@ const Summary = ({ ticket, navigate }: ISummaryProps) => {
         </ul>
         <div className="step__submitWrapper">
           <div className="step__submit">
+            <Button
+              type="primary"
+              size="large"
+              onClick={() => setCurrentStep(currentStep - 1)}
+            >
+              {t("common.back")}
+            </Button>
             <Button type="primary" size="large" onClick={buyTicket}>
               {t("tickets.buy")}
             </Button>
