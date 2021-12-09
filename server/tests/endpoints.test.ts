@@ -1,10 +1,6 @@
 import request, { Response } from "supertest";
 import app from "../app";
-import {
-  LOGIN_FULL_ROUTE,
-  SIGNUP_FULL_ROUTE,
-  TICKETS_FULL_ROUTE,
-} from "../routes.constants";
+import { BASE_URL, SERVER_URL } from "../routes.constants";
 
 const ticket = {
   id: "61a8c1ee227e2fc5407105b0",
@@ -21,7 +17,7 @@ const user = { username: "test", password: "test" };
 describe("Ticket endpoints", () => {
   it("Get tickets", (done) => {
     request(app)
-      .get(TICKETS_FULL_ROUTE)
+      .get(`${BASE_URL}${SERVER_URL.tickets}`)
       .then((res: Response) => {
         expect(res.statusCode).toBe(200);
         done();
@@ -30,7 +26,7 @@ describe("Ticket endpoints", () => {
 
   it("Add ticket", (done) => {
     request(app)
-      .post(TICKETS_FULL_ROUTE)
+      .post(`${BASE_URL}${SERVER_URL.tickets}`)
       .send({ ticket: ticket })
       .then((res: Response) => {
         expect(res.statusCode).toBe(200);
@@ -40,7 +36,7 @@ describe("Ticket endpoints", () => {
 
   it("Edit ticket", (done) => {
     request(app)
-      .patch(TICKETS_FULL_ROUTE)
+      .patch(`${BASE_URL}${SERVER_URL.tickets}`)
       .send({ id: ticket.id, ticket: ticket })
       .then((res: Response) => {
         expect(res.statusCode).toBe(200);
@@ -50,7 +46,7 @@ describe("Ticket endpoints", () => {
 
   it("Delete ticket", (done) => {
     request(app)
-      .delete(TICKETS_FULL_ROUTE)
+      .delete(`${BASE_URL}${SERVER_URL.tickets}`)
       .send({ id: ticket.id })
       .then((res: Response) => {
         expect(res.statusCode).toBe(200);
@@ -62,7 +58,7 @@ describe("Ticket endpoints", () => {
 describe("User endpoints", () => {
   it("Create user", (done) => {
     request(app)
-      .post(SIGNUP_FULL_ROUTE)
+      .post(`${BASE_URL}${SERVER_URL.users}${SERVER_URL.signup}`)
       .send(user)
       .then((res: Response) => {
         expect(res.statusCode).toBe(200);
@@ -72,7 +68,7 @@ describe("User endpoints", () => {
 
   it("Log in", (done) => {
     request(app)
-      .post(LOGIN_FULL_ROUTE)
+      .post(`${BASE_URL}${SERVER_URL.users}${SERVER_URL.login}`)
       .send(user)
       .then((res: Response) => {
         expect(res.statusCode).toBe(200);

@@ -1,11 +1,11 @@
 import express from "express";
-import { TICKETS_URL, USERS_URL } from "../routes.constants";
+import { SERVER_URL } from "../routes.constants";
 import ticketsRoutes from "./tickets.routes";
 import usersRoutes from "./users.routes";
 
 const router = express.Router();
 
-router.use(USERS_URL, usersRoutes);
-router.use(TICKETS_URL, ticketsRoutes);
+router.use(SERVER_URL.users, usersRoutes);
+router.use(SERVER_URL.tickets, ticketsRoutes);
 
 export default router;
