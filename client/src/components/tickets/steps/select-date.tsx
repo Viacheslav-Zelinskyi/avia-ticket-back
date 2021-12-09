@@ -14,7 +14,11 @@ interface ISelectDateProps {
 
 const dateFormat = "DD.MM.YYYY HH:mm";
 
-const SelectDate = ({ setCurrentStep, currentStep, ticket }: ISelectDateProps) => {
+const SelectDate = ({
+  setCurrentStep,
+  currentStep,
+  ticket,
+}: ISelectDateProps) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -38,8 +42,15 @@ const SelectDate = ({ setCurrentStep, currentStep, ticket }: ISelectDateProps) =
         <Button
           type="primary"
           size="large"
+          onClick={() => setCurrentStep(currentStep - 1)}
+        >
+          {t("common.back")}
+        </Button>
+        <Button
+          type="primary"
+          size="large"
           onClick={() => setCurrentStep(currentStep + 1)}
-          disabled={!(ticket.departureDate)}
+          disabled={!ticket.departureDate}
         >
           {t("common.submit")}
         </Button>
