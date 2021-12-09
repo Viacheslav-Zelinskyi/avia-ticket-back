@@ -1,6 +1,7 @@
 import express, { Response } from "express";
 import TicketsControllers from "../controllers/tickets.controllers";
 import { IRequest, IUserReq } from "../models/express";
+import { ROOT_URL } from "../routes.constants";
 import UsersServices from "../services/users.services";
 
 const router = express.Router();
@@ -15,7 +16,7 @@ router.use(async (req: IRequest, res: Response, next) => {
 });
 
 router
-  .route("/")
+  .route(ROOT_URL)
   .get(TicketsControllers.getTickets)
   .post(TicketsControllers.saveTicket)
   .patch(TicketsControllers.updateTicket)
