@@ -74,9 +74,12 @@ class UserService {
     });
   }
 
-  getUserByUsername(username: string) {
+  getUserByUsername(username: string, withoutPassword = false) {
     return new Promise((res, rej) => {
-      Users.find({ username: username }).exec((err, user) => {
+      Users.find(
+        { username: username },
+        withoutPassword ? { password: 0 } : {}
+      ).exec((err, user) => {
         if (err) rej(err);
 
         res(user);
@@ -90,6 +93,36 @@ class UserService {
         if (err) rej(err);
 
         res(doc);
+      });
+    });
+  }
+
+  editUser(username: string, user: IUser) {
+    return new Promise((res, rej) => {
+      Users.updateOne(
+        { username: username },
+        {
+          username: user.username,
+          firstName: user.firstName,
+          secondName: user.secondName,
+          phone: user.phone,
+          img: user.img,
+        } as any,
+        (err) => {
+          if (err) res("Error");
+
+          res("Success");
+        }
+      );
+    });
+  }
+
+  deleteUser(username: string) {
+    return new Promise((res, rej) => {
+      Users.deleteOne({ username: username }, (err, doc) => {
+        if (err) res("Error");
+
+        res("Success");
       });
     });
   }

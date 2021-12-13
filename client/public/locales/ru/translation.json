@@ -60,6 +60,16 @@
     "departureDate": "Дата отправки: ",
     "returnDate": "Дата возвращения: "
   },
+  "profile": {
+    "title": "Профиль пользователя",
+    "firstName": "Имя",
+    "secondName": "Фамилия",
+    "phone": "Телефон",
+    "changeAvatar": "Сменить аватарку",
+    "firstNameChecker": "Введите ваше имя!",
+    "secondNameChecker": "Введите вашу фамилию!",
+    "phoneChecker": "Введите ваш номер телефона!"
+  },
   "common": {
     "from": "С",
     "to": "До",

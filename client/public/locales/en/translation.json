@@ -60,6 +60,16 @@
     "departureDate": "Departure date: ",
     "returnDate": "Return date: "
   },
+  "profile": {
+    "title": "User profile",
+    "firstName": "First name",
+    "secondName": "Second name",
+    "phone": "Phone",
+    "changeAvatar": "Change Avatar",
+    "firstNameChecker": "Please input your first name!",
+    "secondNameChecker": "Please input your second name!",
+    "phoneChecker": "Please input your phone number!"
+  },
   "common": {
     "from": "From",
     "to": "To",

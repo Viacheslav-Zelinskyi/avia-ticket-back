@@ -14,7 +14,7 @@ export const loginFetch = async (user: IUser) => {
   const response = await fetch(`${baseURL}/api/users/login`, {
     method: "POST",
     credentials: "include",
-    body: JSON.stringify(user),
+    body: JSON.stringify({ user: user }),
     headers: {
       "Content-Type": "application/json",
     },
@@ -36,7 +36,7 @@ export const signupFetch = async (user: IUser) => {
   const response = await fetch(`${baseURL}/api/users/signup`, {
     method: "POST",
     credentials: "include",
-    body: JSON.stringify(user),
+    body: JSON.stringify({ user: user }),
     headers: { "Content-Type": "application/json" },
   });
 
@@ -48,6 +48,22 @@ export const refreshTokenFetch = async () => {
     method: "POST",
     credentials: "include",
     headers: { "Content-Type": "application/json" },
+  });
+
+  return response.json();
+};
+
+export const editUserFetch = async (user: IUser) => {
+  const accessToken = localStorage.getItem(ACCESS_TOKEN) as string;
+
+  const response = await fetch(`${baseURL}/api/users`, {
+    method: "PATCH",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+      authentication: accessToken,
+    },
+    body: JSON.stringify({ user: user }),
   });
 
   return response.json();

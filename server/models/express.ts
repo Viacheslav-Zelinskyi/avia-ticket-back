@@ -1,16 +1,13 @@
 import { Request } from "express";
 import { ITicket } from "./tickets";
+import { IUser } from "./users";
 
 export interface IRequest extends Request {
-  query: {
-    token?: string;
-  };
   user?: IUserReq;
   body: {
-    username?: string;
-    password?: string;
     id?: string;
     ticket?: ITicket;
+    user?: IUser;
   };
 }
 
