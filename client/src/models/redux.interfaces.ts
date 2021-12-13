@@ -2,7 +2,11 @@ import { IPeopleCounter } from "./ticket.interfaces";
 
 export interface IUser {
   authorized: boolean;
-  username: string
+  username: string | null;
+  img?: string;
+  firstName?: string;
+  secondName?: string;
+  phone?: string
 }
 
 export interface ITicketStore {

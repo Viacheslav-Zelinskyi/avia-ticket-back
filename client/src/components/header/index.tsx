@@ -11,10 +11,15 @@ import { useEffect, useState } from "react";
 import { setTheme } from "../../utils/themes";
 import { themeKey, themes } from "../../utils/constants/themes.constants";
 import Login from "./login/login";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { IStore } from "../../models/redux.interfaces";
-import { logOut } from "../../redux/reducers/user";
-import { logoutFetch } from "../../api";
+import Profile from "./profile";
+import { IUser } from "../../models/redux.interfaces";
+
+interface IAvatarProps {
+  user: IUser;
+  openProfile: () => void;
+}
 
 interface IHeaderLink {
   text: string;
@@ -25,7 +30,7 @@ interface IHeaderLink {
 const Header = () => {
   const { t, i18n } = useTranslation();
   const user = useSelector((store: IStore) => store.user);
-  const dispatch = useDispatch();
+  const [isOpenProfile, setIsOpenProfile] = useState<boolean>(false);
   const [isOpenedLogin, setIsOpenedLogin] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem(themeKey) === themes.dark
@@ -41,17 +46,16 @@ const Header = () => {
     { value: languages.ru, label: t("header.russian") },
   ];
 
-  const logout = () => {
-    dispatch(logOut());
-    logoutFetch();
-  };
-
   return (
     <div className="header__wrapper">
+      <Profile
+        visible={isOpenProfile}
+        closeWindow={() => setIsOpenProfile(false)}
+      />
       {isOpenedLogin && <Login closeLogin={() => setIsOpenedLogin(false)} />}
       <div className="header__linksContainer">
         {user.authorized ? (
-          <HeaderLink text={t("common.logout")} onClick={logout} />
+          <Avatar user={user} openProfile={() => setIsOpenProfile(true)} />
         ) : (
           <HeaderLink
             text={t("common.login")}
@@ -102,5 +106,15 @@ const HeaderLink = ({ text, route, onClick }: IHeaderLink) => {
     </Button>
   );
 };
+
+const Avatar = ({ user, openProfile }: IAvatarProps) => (
+  <div className="header__avatar" onClick={openProfile}>
+    {(user.img && <img src={user.img} alt="Avatar" />) ||
+      (user.firstName &&
+        user.firstName[0].toUpperCase() +
+          (user.secondName && user.secondName[0].toUpperCase())) ||
+      user.username?.slice(0, 2).toUpperCase()}
+  </div>
+);
 
 export default Header;

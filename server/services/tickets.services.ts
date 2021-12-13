@@ -22,7 +22,7 @@ class TicketsService {
     });
   }
 
-  updateTickets(id: string, ticket: ITicket) {
+  updateTickets(id: string, ticket: any) {
     return new Promise((res, rej) => {
       Tickets.updateOne({ _id: id }, ticket, (err, result) => {
         if (err) rej(err);

@@ -36,4 +36,25 @@
   &__selectLanguageInput {
     background-color: var(--background-color);
   }
+  &__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+    background-color: #5f27cd;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+
+    img {
+      height: 50px;
+      width: 50px;
+    }
+  }
+  &__avatar:hover {
+    background-color: #7642dd;
+  }
 }

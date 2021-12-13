@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { loginFetch, signupFetch } from "../../../api";
 import { IUser } from "../../../models/user.interfaces";
 import { logIn } from "../../../redux/reducers/user";
-import { ACCESS_TOKEN, USERNAME } from "../../../utils/constants/localStorage.constants";
+import { ACCESS_TOKEN } from "../../../utils/constants/localStorage.constants";
 import "./login.scss";
 
 interface ILoginProps {
@@ -22,9 +22,8 @@ const Login = ({ closeLogin }: ILoginProps) => {
       signupFetch(data).then((res) => {
         if (res.error) return alert(res.error);
 
-        dispatch(logIn(data.username));
+        dispatch(logIn(res.user));
         localStorage.setItem(ACCESS_TOKEN, res.token);
-        localStorage.setItem(USERNAME, data.username);
 
         closeLogin();
       });
@@ -32,9 +31,8 @@ const Login = ({ closeLogin }: ILoginProps) => {
       loginFetch(data).then((res) => {
         if (res.error) return alert(res.error);
 
-        dispatch(logIn(data.username));
+        dispatch(logIn(res.user));
         localStorage.setItem(ACCESS_TOKEN, res.token);
-        localStorage.setItem("username", data.username);
 
         closeLogin();
       });

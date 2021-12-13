@@ -26,7 +26,7 @@ function App() {
       if (res.error) return localStorage.removeItem("username");
 
       localStorage.setItem(ACCESS_TOKEN, res.token);
-      dispatch(logIn(localStorage.getItem("username") as string));
+      dispatch(logIn(res.user));
     });
 
     dispatch(getAllTickets());
