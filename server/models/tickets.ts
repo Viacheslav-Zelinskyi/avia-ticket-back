@@ -15,6 +15,10 @@ export interface ITicket {
 }
 
 export const ticketSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+  },
   from: {
     type: String,
     required: true,
