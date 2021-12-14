@@ -62,8 +62,12 @@ const Header = () => {
       <div className="header__linksContainer">
         <div className="header__links">
           <HeaderLink text={t("header.home")} route={homePath} />
-          <HeaderLink text={t("header.tickets")} route={ticketsPath} />
-          <HeaderLink text={t("header.myTickets")} route={myTicketsPath} />
+          {user.authorized && (
+            <>
+              <HeaderLink text={t("header.tickets")} route={ticketsPath} />
+              <HeaderLink text={t("header.myTickets")} route={myTicketsPath} />
+            </>
+          )}
           <HeaderLink text={t("header.about")} route={aboutPath} />
         </div>
         <div className="header__selectors">

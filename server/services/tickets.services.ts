@@ -2,9 +2,9 @@ import { Tickets } from "../db";
 import { ITicket } from "../models/tickets";
 
 class TicketsService {
-  getTickets() {
+  getTickets(username: string) {
     return new Promise((res, rej) => {
-      Tickets.find().exec((err, tickets) => {
+      Tickets.find({ username: username }).exec((err, tickets) => {
         if (err) rej(err);
 
         res(tickets);
@@ -12,29 +12,33 @@ class TicketsService {
     });
   }
 
-  saveTickets(ticket: ITicket) {
+  saveTickets(username: string, ticket: ITicket) {
     return new Promise((res, rej) => {
-      Tickets.create(ticket, (err, doc) => {
+      Tickets.create({ username: username, ...ticket }, (err, doc) => {
         if (err) rej(err);
 
-        res({_id: doc.id});
+        res({ _id: doc.id });
       });
     });
   }
 
-  updateTickets(id: string, ticket: ITicket) {
+  updateTickets(username: string, id: string, ticket: any) {
     return new Promise((res, rej) => {
-      Tickets.updateOne({ _id: id }, ticket, (err, result) => {
-        if (err) rej(err);
+      Tickets.updateOne(
+        { _id: id, username: username },
+        ticket,
+        (err, result) => {
+          if (err) rej(err);
 
-        res(result);
-      });
+          res(result);
+        }
+      );
     });
   }
 
-  deleteTickets(id: string) {
+  deleteTickets(username: string, id: string) {
     return new Promise((res, rej) => {
-      Tickets.deleteOne({ _id: id }, (err, result) => {
+      Tickets.deleteOne({ _id: id, username: username }, (err, result) => {
         if (err) rej(err);
 
         res(result);
